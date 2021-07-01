@@ -1,0 +1,379 @@
+
+var canvas = document.getElementById('myCanvas');
+if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+
+
+}
+
+var colors = {
+    brand: {
+        primary: {
+            300: {
+                onLight: 'a50',
+                onDark: 'a100',
+            },
+            400: {
+                onLight: 'a100',
+                onDark: 'a200',
+            },
+            500: {
+                onLight: '500',
+                onDark: '400',
+            },
+            600: {
+                onLight: '600',
+                onDark: '500',
+            },
+            700: {
+                onLight: '700',
+                onDark: '600',
+            },
+        },
+        secondary: {
+            500: {
+                onLight: '500',
+                onDark: '500',
+            },
+        },
+        gray: {
+            300: {
+                onLight: '50',
+                onDark: '600',
+            },
+            400: {
+                onLight: '300',
+                onDark: '600',
+            },
+            500: {
+                onLight: '500',
+                onDark: '300',
+            },
+            600: {
+                onLight: '600',
+                onDark: '200',
+            },
+            700: {
+                onLight: '800',
+                onDark: '50',
+            },
+        },
+    },
+    feedback: {
+        background: {
+            positive: {
+                highContrast: {
+                    onLight: '600',
+                    onDark: '500',
+                },
+                lowContrast: {
+                    onLight: 'a50',
+                    onDark: 'a100',
+                },
+            },
+            negative: {
+                highContrast: {
+                    onLight: '600',
+                    onDark: '500',
+                },
+                lowContrast: {
+                    onLight: 'a50',
+                    onDark: 'a100',
+                },
+            },
+            notice: {
+                highContrast: {
+                    onLight: '600',
+                    onDark: '500',
+                },
+                lowContrast: {
+                    onLight: 'a50',
+                    onDark: 'a100',
+                },
+            },
+            information: {
+                highContrast: {
+                    onLight: '500',
+                    onDark: '400',
+                },
+                lowContrast: {
+                    onLight: 'a50',
+                    onDark: 'a100',
+                },
+            },
+        },
+        border: {
+            positive: {
+                highContrast: {
+                    onLight: '600',
+                    onDark: '500',
+                },
+                lowContrast: {
+                    onLight: 'a200',
+                    onDark: 'a200',
+                },
+            },
+            negative: {
+                highContrast: {
+                    onLight: '600',
+                    onDark: '500',
+                },
+                lowContrast: {
+                    onLight: 'a200',
+                    onDark: 'a200',
+                },
+            },
+            notice: {
+                highContrast: {
+                    onLight: '600',
+                    onDark: '500',
+                },
+                lowContrast: {
+                    onLight: 'a200',
+                    onDark: 'a200',
+                },
+            },
+            information: {
+                highContrast: {
+                    onLight: '500',
+                    onDark: '400',
+                },
+                lowContrast: {
+                    onLight: 'a200',
+                    onDark: 'a200',
+                },
+            },
+        },
+        text: {
+            positive: {
+                highContrast: {
+                    onLight: '0',
+                    onDark: '0',
+                },
+                lowContrast: {
+                    onLight: '1000',
+                    onDark: '50',
+                },
+            },
+            negative: {
+                highContrast: {
+                    onLight: '0',
+                    onDark: '0',
+                },
+                lowContrast: {
+                    onLight: '1000',
+                    onDark: '50',
+                },
+            },
+            notice: {
+                highContrast: {
+                    onLight: '0',
+                    onDark: '0',
+                },
+                lowContrast: {
+                    onLight: '1000',
+                    onDark: '50',
+                },
+            },
+            information: {
+                highContrast: {
+                    onLight: '0',
+                    onDark: '0',
+                },
+                lowContrast: {
+                    onLight: '1000',
+                    onDark: '50',
+                },
+            },
+        },
+        icon: {
+            positive: {
+                highContrast: {
+                    onLight: '0',
+                    onDark: '0',
+                },
+                lowContrast: {
+                    onLight: '500',
+                    onDark: '500',
+                },
+            },
+            negative: {
+                highContrast: {
+                    onLight: '0',
+                    onDark: '0',
+                },
+                lowContrast: {
+                    onLight: '600',
+                    onDark: '600',
+                },
+            },
+            notice: {
+                highContrast: {
+                    onLight: '0',
+                    onDark: '0',
+                },
+                lowContrast: {
+                    onLight: '600',
+                    onDark: '600',
+                },
+            },
+            information: {
+                highContrast: {
+                    onLight: '0',
+                    onDark: '0',
+                },
+                lowContrast: {
+                    onLight: '500',
+                    onDark: '500',
+                },
+            },
+        },
+    },
+    surface: {
+        background: {
+            level1: {
+                lowContrast: {
+                    onLight: '100',
+                    onDark: '1300',
+                },
+                highContrast: {
+                    onLight: '1100',
+                    onDark: '700',
+                },
+            },
+            level2: {
+                lowContrast: {
+                    onLight: '0',
+                    onDark: '800',
+                },
+                highContrast: {
+                    onLight: '900',
+                    onDark: '600',
+                },
+            },
+            level3: {
+                lowContrast: {
+                    onLight: '50',
+                    onDark: '1200',
+                },
+                highContrast: {
+                    onLight: '1300',
+                    onDark: '1100',
+                },
+            },
+        },
+        border: {
+            normal: {
+                lowContrast: {
+                    onLight: '400',
+                    onDark: '600',
+                },
+                highContrast: {
+                    onLight: '400',
+                    onDark: '600',
+                },
+            },
+            subtle: {
+                lowContrast: {
+                    onLight: '800',
+                    onDark: '500',
+                },
+                highContrast: {
+                    onLight: '800',
+                    onDark: '500',
+                },
+            },
+        },
+        text: {
+            normal: {
+                lowContrast: {
+                    onLight: '1200',
+                    onDark: '50',
+                },
+                highContrast: {
+                    onLight: '0',
+                    onDark: '1200',
+                },
+            },
+            subtle: {
+                lowContrast: {
+                    onLight: '1000',
+                    onDark: '100',
+                },
+                highContrast: {
+                    onLight: '100',
+                    onDark: '1000',
+                },
+            },
+            subdued: {
+                lowContrast: {
+                    onLight: '800',
+                    onDark: '200',
+                },
+                highContrast: {
+                    onLight: '300',
+                    onDark: '700',
+                },
+            },
+            muted: {
+                lowContrast: {
+                    onLight: '600',
+                    onDark: '300',
+                },
+                highContrast: {
+                    onLight: '400',
+                    onDark: '400',
+                },
+            },
+            placeholder: {
+                lowContrast: {
+                    onLight: '500',
+                    onDark: '400',
+                },
+                highContrast: {
+                    onLight: '700',
+                    onDark: '200',
+                },
+            },
+        },
+    },
+};
+init(colors, '');
+drawContent();
+var x = 900;
+var y = 10;
+function init(colors) {
+    var updatedData = [];
+    updatedData.push('colors');
+    for (var key in colors) {
+        if (typeof colors[key] != "object") {
+            drawContent(colors[key], key);
+            console.log(key);
+        } else {
+            init(colors[key]);
+        }
+        updatedData.push(colors[key]);
+    }
+
+    console.log(updatedData)
+}
+
+
+function drawContent(obj, key) {
+    x = x - 25;
+    y = y + 25;
+    ctx.beginPath();
+    ctx.rect(20, 20, x, y);
+    ctx.stroke();
+    ctx.fillText(key, 10, 50);
+
+
+    // for (var ky in obj) {
+    //     if (typeof colors[key] == "object") {
+    //         drawContent(colors[key], key);
+    //     }
+    //     debugger
+    //     console.log(ky);
+    // }
+
+}

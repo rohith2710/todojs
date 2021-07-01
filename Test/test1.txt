@@ -1,0 +1,29 @@
+// name, age, state {name: '', age: ''}
+
+<input type = "text" , value = "" onChange={handleNameChanger}>
+<input type = "number" , value = "" onChange={handleNumberChanger}>
+
+<input type = "Submit" , onClick = {handleonSubmit}
+
+
+handleNameChanger =(event) => {
+    const name =event.target.value;
+    //setstate
+    if(!name) {
+        // throw alert or any error for name
+    }
+}
+
+handleNumberChanger =(event) => {
+    const age =event.target.value;
+       //setstate
+    if(!isNaN(age) {
+        // throw alert or any errors for age
+    }
+}
+
+handleonSubmit = (event) => {
+    //before doing request validate here
+    this.state
+
+}

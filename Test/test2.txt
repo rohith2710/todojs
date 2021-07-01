@@ -1,0 +1,23 @@
+
+// 2 api calls
+
+promise1 (resolve, reject) {
+    console.log('start);
+    // 1st api call 
+    http.get('https:/jsonplaceholder.json')
+}.then ((resolve){
+promise2 (resolve, reject) {
+    if(resolve.data.parsJson().id) {
+    // 2nd api call to be done here based on 1st call response;
+    http.get('https:/jsonplaceholder.json')
+    }
+}.then((resolve)){
+
+}.catch((reject){
+    '2nd api call error'
+})
+}
+).catch ((reject)
+ '1st api call error'
+)
+promise1();

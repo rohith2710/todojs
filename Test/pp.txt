@@ -1,0 +1,33 @@
+feed --> article-->(info,likes, comments,emojis)
+
+
+feeds --> feed 
+
+<article 
+<infoo>
+<likes>
+<comments>
+
+feed
+
+
+<div>
+
+<h1> {props.name}</h1>
+<article> {props.info}</article>
+
+<div>
+<span> likes </span>
+<span> comments </span>
+<span> share </span>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
